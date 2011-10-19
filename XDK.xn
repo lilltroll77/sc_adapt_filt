@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Network xmlns="http://www.xmos.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.xmos.com http://www.xmos.com">
+  <Type>Board</Type>
+  <Name>XS1-G Development Board</Name>
+
+  <Declarations>
+    <Declaration>core stdcore[4]</Declaration>
+  </Declarations>
+
+  <Packages>
+    <Package id="0" Type="XS1-G4B-FB512">
+      <Nodes>
+        <Node Id="0" InPackageId="0" Type="XS1-G4B" Oscillator="20MHz" SystemFrequency="400MHz">
+          <Boot>
+            <Source Location="SPI:bootFlash"/>
+          </Boot>
+          <Core Number="0" Reference="stdcore[0]">
+            <Port Location="XS1_PORT_1A" Name="PORT_SPI_MISO"/>
+            <Port Location="XS1_PORT_1B" Name="PORT_SPI_SS"/>
+            <Port Location="XS1_PORT_1C" Name="PORT_SPI_CLK"/>
+            <Port Location="XS1_PORT_1D" Name="PORT_SPI_MOSI"/>
+        
+            <Port Location="XS1_PORT_1E" Name="PORT_LED_0_0"/>
+            <Port Location="XS1_PORT_1F" Name="PORT_LED_0_1"/>
+            <Port Location="XS1_PORT_1G" Name="PORT_LED_0_2"/>
+        
+            <Port Location="XS1_PORT_1H" Name="PORT_UART_TXD"/>
+            <Port Location="XS1_PORT_1I" Name="PORT_UART_RXD"/>
+        
+            <Port Location="XS1_PORT_1J" Name="PORT_BUTTON_4"/>
+            <Port Location="XS1_PORT_1K" Name="PORT_BUTTONLED_4"/>
+        
+            <Port Location="XS1_PORT_1L" Name="PORT_SRAM_WE_N"/>
+        
+            <Port Location="XS1_PORT_1M" Name="PORT_SDC_RSV"/>
+        
+            <Port Location="XS1_PORT_1N" Name="PORT_SDC_CLK"/>
+            <Port Location="XS1_PORT_1O" Name="PORT_SDC_DATA"/>
+            <Port Location="XS1_PORT_1P" Name="PORT_SDC_CMD"/>
+        
+            <Port Location="XS1_PORT_4C" Name="PORT_SRAM_CTRL"/>
+            <Port Location="XS1_PORT_4E" Name="PORT_BUTTONLED_0_3"/>
+            <Port Location="XS1_PORT_4F" Name="PORT_BUTTON_0_3"/>
+        
+            <Port Location="XS1_PORT_8A" Name="PORT_SRAM_DATA"/>
+            <Port Location="XS1_PORT_8D" Name="PORT_ILLUM"/>
+        
+            <Port Location="XS1_PORT_32A" Name="PORT_SRAM_ADDR"/>
+          </Core>
+          <Core Number="1" Reference="stdcore[1]">
+            <Port Location="XS1_PORT_1E" Name="PORT_LED_1_0"/>
+            <Port Location="XS1_PORT_1F" Name="PORT_LED_1_1"/>
+            <Port Location="XS1_PORT_1G" Name="PORT_LED_1_2"/>
+          </Core>
+          <Core Number="2" Reference="stdcore[2]">
+            <Port Location="XS1_PORT_1A" Name="PORT_RGB_SCLK"/>
+            <Port Location="XS1_PORT_1B" Name="PORT_RGB_SIN"/>
+            <Port Location="XS1_PORT_1C" Name="PORT_RGB_LATCH_N"/>
+            <Port Location="XS1_PORT_1D" Name="PORT_RGB_BLANK"/>
+            <Port Location="XS1_PORT_1E" Name="PORT_LED_2_0"/>
+            <Port Location="XS1_PORT_1F" Name="PORT_LED_2_1"/>
+            <Port Location="XS1_PORT_1G" Name="PORT_LED_2_2"/>
+            <Port Location="XS1_PORT_1H" Name="PORT_ETH_RXCLK"/>
+            <Port Location="XS1_PORT_1I" Name="PORT_ETH_RXDV"/>
+            <Port Location="XS1_PORT_1J" Name="PORT_ETH_RXER"/>
+            <Port Location="XS1_PORT_1K" Name="PORT_ETH_TXCLK"/>
+            <Port Location="XS1_PORT_1L" Name="PORT_ETH_TXEN"/>
+            <Port Location="XS1_PORT_1M" Name="PORT_ETH_RST_N"/>
+            <Port Location="XS1_PORT_1N" Name="PORT_ETH_TXER"/>
+            <Port Location="XS1_PORT_1O" Name="PORT_ETH_MDIO"/>
+            <Port Location="XS1_PORT_1P" Name="PORT_ETH_MDC"/>
+            <Port Location="XS1_PORT_4A" Name="PORT_ETH_RXD"/>
+            <Port Location="XS1_PORT_4B" Name="PORT_ETH_TXD"/>
+            <Port Location="XS1_PORT_4F" Name="PORT_RGB_CSEL"/>
+          </Core>
+          <Core Number="3" Reference="stdcore[3]">
+            <Port Location="XS1_PORT_1A" Name="PORT_LCD_DCLK"/>
+            <Port Location="XS1_PORT_1B" Name="PORT_LCD_DTMG"/>
+            <Port Location="XS1_PORT_1C" Name="PORT_AUDIO_BCLK"/>
+            <Port Location="XS1_PORT_1D" Name="PORT_AUDIO_LRCIN"/>
+            <Port Location="XS1_PORT_1E" Name="PORT_LED_3_0"/>
+            <Port Location="XS1_PORT_1F" Name="PORT_LED_3_1"/>
+            <Port Location="XS1_PORT_1G" Name="PORT_LED_3_2"/>
+            <Port Location="XS1_PORT_1H" Name="PORT_AUDIO_LRCOUT"/>
+            <Port Location="XS1_PORT_1I" Name="PORT_AUDIO_DIN"/>
+            <Port Location="XS1_PORT_1J" Name="PORT_AUDIO_DOUT"/>
+            <Port Location="XS1_PORT_1K" Name="PORT_AUDIO_SCLK"/>
+            <Port Location="XS1_PORT_1L" Name="PORT_AUDIO_SDIN"/>
+            <Port Location="XS1_PORT_1O" Name="PORT_TOUCH_DOUT"/>
+            <Port Location="XS1_PORT_1P" Name="PORT_TOUCH_DIN"/>
+            <Port Location="XS1_PORT_4C" Name="PORT_TOUCH_PEN"/>
+            <Port Location="XS1_PORT_4D" Name="PORT_TOUCH_DCLK"/>
+            <Port Location="XS1_PORT_4E" Name="PORT_TOUCH_CS"/>
+            <Port Location="XS1_PORT_4F" Name="PORT_LCD_HSYNC"/>
+            <Port Location="XS1_PORT_32A" Name="PORT_LCD_RGB"/>
+          </Core>
+        </Node>
+      </Nodes>
+    </Package>
+  </Packages>
+
+  <ExternalDevices>
+    <Device NodeId="0" Core="0" Class="SPIFlash" Name="bootFlash" Type="EPCS1">
+      <Attribute Name="PORT_SPI_MISO" Value="PORT_SPI_MISO"/>
+      <Attribute Name="PORT_SPI_SS"   Value="PORT_SPI_SS"/>
+      <Attribute Name="PORT_SPI_CLK"  Value="PORT_SPI_CLK"/>
+      <Attribute Name="PORT_SPI_MOSI" Value="PORT_SPI_MOSI"/>
+    </Device>
+  </ExternalDevices>
+
+  <JTAGChain>
+     <JTAGDevice NodeId="0"/>
+  </JTAGChain>
+
+</Network>
+
