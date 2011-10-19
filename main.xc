@@ -49,11 +49,12 @@ int lms(int x_ref, int x_des, int mu, int alfa,int coeffs[], int state[],int ELE
 #define shift 4;
 	unsigned ynl,pnl;
 	int ynh,pnh, error,mue;
-
+    ynl = (1<<23);
+    ynh = 0;
 	for (int j = ELEMENTS - 1 ; j != 0 ; j--) {
 				state[j] = state[j - 1];
-				{ynh, ynl}=macs(coeffs[j], state[j], 0, 0x80000000);
-				{pnh, pnl}=macs(state[j]/ELEMENTS, state[j], alfa, 0);
+				{ynh, ynl}=macs(coeffs[j], state[j], ynh, ynl);
+				{pnh, pnl}=macs(state[j]/ELEMENTS, state[j], alfa, 0);  //calculates the energy in state
 			}
 			state[0] = x_ref<<7;
 			{ynh, ynl}=macs(coeffs[0], x_ref<<7, ynh, ynl);
@@ -63,7 +64,7 @@ int lms(int x_ref, int x_des, int mu, int alfa,int coeffs[], int state[],int ELE
 
 			error = x_des-ynh;
 			{mue,void}=macs(mu,error,0,0);
-			//ldiv
+			//ldiv for nlms
 			for(int j = ELEMENTS-1 ; j!=0 ; j--)
 				{coeffs[j],void}=macs((state[j]),mue,coeffs[j],0x80000000);
 			{coeffs[0],void}=macs((state[0]),mue,coeffs[0],0x80000000);
@@ -127,7 +128,7 @@ int main(){
 	int x_des, x_ref, error,noise;
 	unsigned usign1,usign2,seed1,seed2,lo = 0;
 	unsigned POW[2] = {0,0};
-	int mu=0x10000000;
+	int mu=0x8000000;
 	int alfa=0;
 	timer t;
 	t:>usign1;
@@ -165,7 +166,7 @@ int main(){
 
 	for (int j = 0 ; j<LEN ; j++) {
 		crc32(usign1, seed1, POLYNOMIAL);
-		x_ref=((int) usign1)>>8 ; //23 bits + sign
+		x_ref=((int) usign1)>>8 ;
 		crc32(usign2, seed2, POLYNOMIAL);
 		noise=((int) usign2)>>16 ;
 		x_des=fir(x_ref, hreal, state[0], ELEMENTS);
